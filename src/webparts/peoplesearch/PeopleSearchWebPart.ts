@@ -282,7 +282,7 @@ export default class PeopleSearchWebPart extends BaseClientSideWebPart<IPeopleSe
         deferredValidationTime: 300,
         onGetErrorMessage: (value: string) => {
           return this._validateNumber(value);
-        } 
+        }
       }),
     ];
 
@@ -362,7 +362,7 @@ export default class PeopleSearchWebPart extends BaseClientSideWebPart<IPeopleSe
 
   /**
   * Checks if all webpart properties have been configured
-  */ 
+  */
   private _isWebPartConfigured(): boolean {
     return true;
   }
@@ -372,7 +372,7 @@ export default class PeopleSearchWebPart extends BaseClientSideWebPart<IPeopleSe
   */
   private _initializeRequiredProperties() {
     this.properties.selectedLayout = !isEmpty(this.properties.selectedLayout) ? this.properties.selectedLayout : ResultsLayoutOption.People;
-    this.properties.searchParameterOption = !isEmpty(this.properties.searchParameterOption) ? this.properties.searchParameterOption : SearchParameterOption.None;
+    this.properties.searchParameterOption = (this.properties.searchParameterOption) ? this.properties.searchParameterOption : SearchParameterOption.None;
     this.properties.templateParameters = this.properties.templateParameters ? this.properties.templateParameters : {};
   }
 
