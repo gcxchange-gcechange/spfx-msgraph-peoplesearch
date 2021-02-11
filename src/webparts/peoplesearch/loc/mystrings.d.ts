@@ -14,6 +14,7 @@ declare interface IPeopleSearchWebPartStrings {
   ResultsCount: string;
   ResultsLayoutLabel: string;
   SearchInputPlaceholder: string;
+  SearchButton: string;
   SearchParameter: string;
   SearchParameterOption: string;
   NoneSearchParameterOption: string;
@@ -23,6 +24,8 @@ declare interface IPeopleSearchWebPartStrings {
   SearchQuerySettingsGroupName: string;
   SelectParameter: string;
   ShowPaginationControl: string;
+  PaginationNextPage: string;
+  PaginationPreviousPage: string;
   ShowLivePersonaCard: string;
   ShowResultsCountLabel: string;
   ShowBlankLabel: string;

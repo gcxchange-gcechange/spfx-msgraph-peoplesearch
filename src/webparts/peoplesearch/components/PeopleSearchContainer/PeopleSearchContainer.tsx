@@ -111,7 +111,7 @@ export class PeopleSearchContainer extends React.Component<IPeopleSearchContaine
           serviceScope: this.props.serviceScope
         } as ITemplateContext;
         templateContext = { ...templateContext, ...this.props.templateParameters };
-  
+
         renderShimmerElements = this.props.templateService.getShimmerTemplateComponent(this.props.selectedLayout, templateContext);
       }
     }
@@ -152,11 +152,11 @@ export class PeopleSearchContainer extends React.Component<IPeopleSearchContaine
         let nextPageEl: JSX.Element = null;
 
         if (this.hasPreviousPage()) {
-          prevPageEl = <IconButton onClick={async () => await this._fetchPeopleSearchResults(this.state.page - 1)} iconProps={{ iconName: 'DoubleChevronLeft8' }} />;
+          prevPageEl = <IconButton onClick={async () => await this._fetchPeopleSearchResults(this.state.page - 1)} iconProps={{ iconName: 'DoubleChevronLeft8' }} aria-label={strings.PaginationPreviousPage} />;
         }
 
         if (this.hasNextPage()) {
-          nextPageEl = <IconButton onClick={async () => await this._fetchPeopleSearchResults(this.state.page + 1)} iconProps={{ iconName: 'DoubleChevronRight8' }} />;
+          nextPageEl = <IconButton onClick={async () => await this._fetchPeopleSearchResults(this.state.page + 1)} iconProps={{ iconName: 'DoubleChevronRight8' }} aria-label={strings.PaginationNextPage} />;
         }
 
         renderPagination =
@@ -257,7 +257,7 @@ export class PeopleSearchContainer extends React.Component<IPeopleSearchContaine
       let isUpdated = false;
       let pictures = await this.props.searchService.fetchProfilePictures(usersWithoutPhotosBatch[i]);
       let ids = Object.keys(pictures);
-      
+
       items.value = items.value.map(u => {
         if (ids.indexOf(u.id) !== -1) {
           u.photoUrl = pictures[u.id];
@@ -269,7 +269,7 @@ export class PeopleSearchContainer extends React.Component<IPeopleSearchContaine
       if (isUpdated) {
         this.setState(prevState => {
           prevState.results[page - 1] = items;
-    
+
           return {
             results: prevState.results
           };

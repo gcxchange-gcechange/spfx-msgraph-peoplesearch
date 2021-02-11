@@ -40,6 +40,7 @@ export class PeopleSearchBox extends React.Component<IPeopleSearchBoxProps,IPeop
               <div className={styles.searchButton}>
                   {this.state.searchInputValue &&
                       <IconButton
+                          aria-label={strings.SearchButton}
                           onClick={() => this._onSearch(this.state.searchInputValue)}
                           iconProps={{ iconName: 'Forward' }}
                       />
