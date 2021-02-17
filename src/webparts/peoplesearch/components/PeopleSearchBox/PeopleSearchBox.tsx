@@ -33,7 +33,7 @@ export class PeopleSearchBox extends React.Component<IPeopleSearchBoxProps,IPeop
                   className={styles.searchTextField}
                   value={this.state.searchInputValue}
                   autoComplete="off"
-                  onChange={(value) => this.setState({ searchInputValue: value })}
+                  onChange={(value) => this._onChange(value)}
                   onSearch={() => this._onSearch(this.state.searchInputValue)}
                   onClear={() => this._onSearch('', true)}
               />
@@ -62,17 +62,28 @@ export class PeopleSearchBox extends React.Component<IPeopleSearchBoxProps,IPeop
           let query = queryText;
 
           this.setState({
-              searchInputValue: queryText,
               showClearButton: !isReset
           });
 
           let element = document.activeElement as HTMLElement;
           if (element) {
-              element.blur();
+              // element.blur();
           }
 
           // Notify the dynamic data controller
           this.props.onSearch(query);
+      }
+  }
+
+  public _onChange(value) {
+      // TODO SET TIMEOUT, ONLY RUN ON 2 or 3 Character inputs
+      console.log(`Value: ${value}`);
+      this.setState({
+          searchInputValue: value
+      })
+      console.log(this.state.searchInputValue.length);
+      if (this.state.searchInputValue.length > 1) {
+        this._onSearch(this.state.searchInputValue);  
       }
   }
 
