@@ -76,12 +76,9 @@ export class PeopleSearchBox extends React.Component<IPeopleSearchBoxProps,IPeop
   }
 
   public _onChange(value) {
-      // TODO SET TIMEOUT, ONLY RUN ON 2 or 3 Character inputs
-      console.log(`Value: ${value}`);
       this.setState({
           searchInputValue: value
-      })
-      console.log(this.state.searchInputValue.length);
+      });
       if (this.state.searchInputValue.length > 1) {
         this._onSearch(this.state.searchInputValue);  
       }

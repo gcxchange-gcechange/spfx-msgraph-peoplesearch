@@ -42,11 +42,6 @@ export class PeopleSearchContainer extends React.Component<IPeopleSearchContaine
     };
   }
 
-  public async componentDidMount() {
-    console.log('MOUNTED');
-    // await this._fetchPeopleSearchResults(1, true);
-  }
-
   /**
    *
    *
