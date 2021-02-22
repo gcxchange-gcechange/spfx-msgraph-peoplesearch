@@ -65,11 +65,6 @@ export class PeopleSearchBox extends React.Component<IPeopleSearchBoxProps,IPeop
               showClearButton: !isReset
           });
 
-          let element = document.activeElement as HTMLElement;
-          if (element) {
-              // element.blur();
-          }
-
           // Notify the dynamic data controller
           this.props.onSearch(query);
       }
@@ -79,7 +74,7 @@ export class PeopleSearchBox extends React.Component<IPeopleSearchBoxProps,IPeop
       this.setState({
           searchInputValue: value
       });
-      if (this.state.searchInputValue.length > 1) {
+      if (this.state.searchInputValue.length >= 2) {
         this._onSearch(this.state.searchInputValue);  
       }
   }
