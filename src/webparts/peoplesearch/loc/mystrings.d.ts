@@ -44,6 +44,7 @@ declare interface IPeopleSearchWebPartStrings {
     PersonaSizeLarge: string;
     PersonaSizeExtraLarge: string;
   }
+  ContinueTyping: string;
 }
 
 declare module 'PeopleSearchWebPartStrings' {

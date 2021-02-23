@@ -9,6 +9,7 @@ import { IPeopleSearchBoxState } from "./IPeopleSearchBoxState";
 import {
   IconButton,
   SearchBox,
+  Spinner,
   ITheme
 } from "office-ui-fabric-react";
 
@@ -21,6 +22,7 @@ export class PeopleSearchBox extends React.Component<IPeopleSearchBoxProps,IPeop
     this.state = {
         searchInputValue: props.searchInputValue,
         showClearButton: false,
+        isLoading: false
     };
   }
 
@@ -62,7 +64,8 @@ export class PeopleSearchBox extends React.Component<IPeopleSearchBoxProps,IPeop
           let query = queryText;
 
           this.setState({
-              showClearButton: !isReset
+              showClearButton: !isReset,
+              isLoading: false
           });
 
           // Notify the dynamic data controller
@@ -72,8 +75,11 @@ export class PeopleSearchBox extends React.Component<IPeopleSearchBoxProps,IPeop
 
   public _onChange(value) {
       this.setState({
-          searchInputValue: value
+          searchInputValue: value,
+          isLoading: true
       });
+      // The following will run after the user types 3 characters
+      // The state is behind by 1 at the check, this is why it is set to 2
       if (this.state.searchInputValue.length >= 2) {
         this._onSearch(this.state.searchInputValue);  
       }
@@ -83,6 +89,7 @@ export class PeopleSearchBox extends React.Component<IPeopleSearchBoxProps,IPeop
       return (
           <div className={styles.searchBox}>
               {this.renderBasicSearchBox()}
+              {this.state.isLoading && <span>{strings.ContinueTyping}<Spinner /></span>}
           </div>
       );
   }
