@@ -45,5 +45,6 @@ define([], function() {
       "PersonaSizeLarge": "Large",
       "PersonaSizeExtraLarge": "Extra large",
     },
+    "ContinueTyping": "Continue Typing",
   }
 });

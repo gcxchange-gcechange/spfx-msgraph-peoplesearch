@@ -42,10 +42,6 @@ export class PeopleSearchContainer extends React.Component<IPeopleSearchContaine
     };
   }
 
-  public async componentDidMount() {
-    await this._fetchPeopleSearchResults(1, true);
-  }
-
   /**
    *
    *
@@ -184,7 +180,7 @@ export class PeopleSearchContainer extends React.Component<IPeopleSearchContaine
       <div style={{backgroundColor: semanticColors.bodyBackground}}>
         <div className={styles.peopleSearchWebPart}>
           {renderWebPartTitle}
-          {renderShimmerElements ? renderShimmerElements : renderWebPartContent}
+          {renderWebPartContent}
         </div>
       </div>
     );
